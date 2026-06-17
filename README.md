@@ -91,8 +91,4 @@ npm run dev
 2. Al hacer clic en cualquiera de ellos, ingresarás al Dashboard del producto donde verás su precio, fotos y reseñas sin procesar.
 3. Haz clic en el botón naranja **"Analizar"**. El frontend enviará las fotos y el texto de las reseñas al Backend.
 4. El Backend se conecta con **Gemini Flash** utilizando un sistema de contingencia (Fallback automático entre los modelos 3.5, 3.1, 2.5 y 1.5 en caso de sobrecarga del servidor de Google).
-5. En unos segundos, recibirás el veredicto final: Puntaje de fidelidad, Realidad vs Publicidad, Alertas Rojas críticas, y un resumen ejecutivo.
-
----
-
-**Creado para revolucionar la forma en que compramos por internet.**
+5. En unos segundos, recibirás el veredicto final: Puntaje de fidelidad, Realidad vs Publicidad, Alertas Rojas críticas, y un resumen.
