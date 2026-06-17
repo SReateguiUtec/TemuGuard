@@ -1,0 +1,253 @@
+{
+  "products": [
+    {
+      "id": "p_001",
+      "name": "Smartwatch FitPro X8 - Reloj Inteligente Deportivo Resistente al Agua",
+      "price": 24.99,
+      "originalPrice": 59.99,
+      "discountPercentage": 58,
+      "rating": 3.8,
+      "totalReviews": 1245,
+      "description": "Reloj inteligente con monitor de ritmo cardíaco, podómetro, notificaciones de mensajes y resistencia al agua IP67. Compatible con iOS y Android. Batería de larga duración de hasta 7 días.",
+      "images": [
+        "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?auto=format&fit=crop&q=80&w=800"
+      ],
+      "attributes": [
+        { "name": "Batería", "value": "150mAh (Hasta 7 días)" },
+        { "name": "Resistencia", "value": "IP67 (Sumergible)" },
+        { "name": "Pantalla", "value": "1.3 pulgadas TFT" },
+        { "name": "Conectividad", "value": "Bluetooth 4.0" }
+      ],
+      "reviews": [
+        {
+          "id": "r_001",
+          "user": "Miguel A.",
+          "rating": 5,
+          "title": "Excelente por el precio",
+          "content": "Para costar 25 dólares, hace mucho más de lo que esperaba. Las notificaciones llegan al instante y la pantalla se ve muy bien a plena luz del sol. Lo uso para correr y el podómetro es bastante preciso. ¡Muy recomendado!",
+          "verifiedPurchase": true,
+          "date": "2023-11-02"
+        },
+        {
+          "id": "r_002",
+          "user": "Sofía T.",
+          "rating": 4,
+          "title": "Buen reloj, pero la app es mejorable",
+          "content": "El reloj físicamente es muy bonito y no se siente barato. La correa es cómoda. Mi única queja es que la aplicación móvil es un poco confusa al principio para sincronizar los contactos. Por lo demás, genial.",
+          "verifiedPurchase": true,
+          "date": "2023-10-28"
+        },
+        {
+          "id": "r_003",
+          "user": "Javier L.",
+          "rating": 2,
+          "title": "No es resistente al agua",
+          "content": "Lo compré específicamente porque decía que era IP67. Me metí a la piscina con él y a los 5 minutos la pantalla se puso negra. Al abrirlo estaba lleno de agua. Publicidad totalmente engañosa en ese aspecto.",
+          "verifiedPurchase": true,
+          "date": "2023-10-15"
+        },
+        {
+          "id": "r_004",
+          "user": "Elena G.",
+          "rating": 1,
+          "title": "El monitor cardíaco es falso",
+          "content": "Hice una prueba. Me quité el reloj, lo puse sobre la mesa, activé el monitor cardíaco y... ¡la mesa tenía 85 pulsaciones por minuto! Es un juguete, no un dispositivo de salud. No gasten su dinero.",
+          "verifiedPurchase": true,
+          "date": "2023-09-22"
+        },
+        {
+          "id": "r_005",
+          "user": "Carlos M.",
+          "rating": 3,
+          "title": "Batería dura 1 día",
+          "content": "Estéticamente está bien para un niño, pero de los 7 días de batería que prometen, con suerte llego al final del día si tengo las notificaciones activadas. Tienes que cargarlo todas las noches sin falta.",
+          "verifiedPurchase": false,
+          "date": "2023-11-10"
+        },
+        {
+          "id": "r_006",
+          "user": "Ana P.",
+          "rating": 5,
+          "title": "Regalo perfecto para mi sobrino",
+          "content": "Se lo regalé a mi sobrino de 10 años y le encantó. Para un niño está perfecto porque parece un Apple Watch pero si lo rompe no duele el bolsillo. Le encanta cambiar las carátulas.",
+          "verifiedPurchase": true,
+          "date": "2023-11-15"
+        },
+        {
+          "id": "r_007",
+          "user": "Roberto R.",
+          "rating": 1,
+          "title": "Se desconecta a cada rato",
+          "content": "El bluetooth tiene un alcance de apenas 2 metros. Si dejo el celular en la sala y voy a la cocina, el reloj vibra indicando que se desconectó. Es muy molesto tener que estar reconectándolo manualmente en la app.",
+          "verifiedPurchase": true,
+          "date": "2023-10-05"
+        },
+        {
+          "id": "r_008",
+          "user": "Luisa F.",
+          "rating": 4,
+          "title": "Lindo diseño",
+          "content": "Me gusta cómo se ve, es idéntico a las fotos. Los materiales son plástico pero de buena calidad. La correa rosa es muy bonita. Cumple su función de dar la hora y avisar si te llaman.",
+          "verifiedPurchase": true,
+          "date": "2023-09-30"
+        },
+        {
+          "id": "r_009",
+          "user": "Diego V.",
+          "rating": 2,
+          "title": "Pantalla muy frágil",
+          "content": "Se me cayó de la mesita de noche (medio metro de altura) y la pantalla se rajó por completo. El cristal es de pésima calidad, parece plástico acrílico delgado. No duró ni una semana.",
+          "verifiedPurchase": true,
+          "date": "2023-08-20"
+        },
+        {
+          "id": "r_010",
+          "user": "Marta H.",
+          "rating": 1,
+          "title": "La aplicación tiene virus",
+          "content": "Al intentar instalar la aplicación FitPro desde el código QR de la caja, mi teléfono me lanzó una advertencia de seguridad severa. No me atreví a instalarla. Sin la app el reloj es inútil.",
+          "verifiedPurchase": false,
+          "date": "2023-07-12"
+        }
+      ]
+    },
+    {
+      "id": "p_002",
+      "name": "Zapatillas Ultralight Air - 100% Cuero y Suela Ortopédica",
+      "price": 18.50,
+      "originalPrice": 85.00,
+      "discountPercentage": 78,
+      "rating": 2.5,
+      "totalReviews": 3120,
+      "description": "Zapatillas deportivas premium diseñadas para el máximo rendimiento. Fabricadas en cuero genuino transpirable, con suela ortopédica que absorbe el impacto. Ideales para maratones, running intenso y uso diario.",
+      "images": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&q=80&w=800"
+      ],
+      "attributes": [
+        { "name": "Material", "value": "100% Cuero Genuino" },
+        { "name": "Suela", "value": "Ortopédica Anti-Impacto" },
+        { "name": "Peso", "value": "150g (Ultralight)" },
+        { "name": "Uso", "value": "Running Profesional" }
+      ],
+      "reviews": [
+        {
+          "id": "r_011",
+          "user": "Pedro S.",
+          "rating": 1,
+          "title": "Estafa, son puro plástico",
+          "content": "De cuero no tienen absolutamente nada. Es un material plástico brillante (vinil) que hace sudar el pie horriblemente a los 5 minutos de ponértelos. El olor a químico al abrir la caja era insoportable.",
+          "verifiedPurchase": true,
+          "date": "2024-01-10"
+        },
+        {
+          "id": "r_012",
+          "user": "Mariana J.",
+          "rating": 1,
+          "title": "Destruyeron mis pies",
+          "content": "Salí a correr con ellas creyendo que tenían suela ortopédica. La suela es literalmente un bloque de plástico rígido, cero amortiguación. Regresé con unas ampollas terribles y dolor de rodilla.",
+          "verifiedPurchase": true,
+          "date": "2024-02-05"
+        },
+        {
+          "id": "r_013",
+          "user": "Lucas P.",
+          "rating": 2,
+          "title": "La talla es un desastre",
+          "content": "Pedí talla 42 y parecen un 40. Vienen reducidísimas. Además la suela no tiene agarre, casi me mato resbalando en el piso mojado del supermercado.",
+          "verifiedPurchase": true,
+          "date": "2024-03-12"
+        },
+        {
+          "id": "r_014",
+          "user": "Diana C.",
+          "rating": 4,
+          "title": "Por el precio están pasables",
+          "content": "A ver, por 18 dólares no esperaba cuero real. Las uso solo para estar en casa o ir a comprar el pan y se ven bonitas. Pero definitivamente no sirven para hacer deporte.",
+          "verifiedPurchase": true,
+          "date": "2024-03-20"
+        },
+        {
+          "id": "r_015",
+          "user": "Felipe B.",
+          "rating": 1,
+          "title": "Se despintaron a la primera lavada",
+          "content": "Se ensuciaron, las metí a la lavadora en ciclo suave y todo el color rojo se corrió manchando la parte blanca. Terminaron en la basura.",
+          "verifiedPurchase": true,
+          "date": "2024-04-01"
+        }
+      ]
+    },
+    {
+      "id": "p_003",
+      "name": "Set Cuchillos Chef Pro - Acero Damasco Forjado a Mano",
+      "price": 32.00,
+      "originalPrice": 150.00,
+      "discountPercentage": 78,
+      "rating": 3.1,
+      "totalReviews": 890,
+      "description": "Experimenta la precisión de los chefs estrella Michelin. Cuchillo de acero Damasco real de 67 capas, forjado a mano por maestros artesanos. Dureza 60 HRC, nunca pierde el filo. Mango de madera de ébano ergonómico.",
+      "images": [
+        "https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1622021142947-da7dedc7c39a?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1514986888952-8cd320577b68?auto=format&fit=crop&q=80&w=800"
+      ],
+      "attributes": [
+        { "name": "Hoja", "value": "Acero Damasco 67 capas" },
+        { "name": "Dureza", "value": "60 HRC" },
+        { "name": "Mango", "value": "Madera de Ébano real" },
+        { "name": "Fabricación", "value": "Forjado a Mano" }
+      ],
+      "reviews": [
+        {
+          "id": "r_016",
+          "user": "Andrés G.",
+          "rating": 1,
+          "title": "Falso Damasco impreso con láser",
+          "content": "Trabajo en metalurgia. Este cuchillo no es acero de Damasco real. Es una hoja de acero inoxidable barato con el patrón ondulado grabado con láser en la superficie. Si lo afilas un poco fuerte, el patrón desaparece.",
+          "verifiedPurchase": true,
+          "date": "2024-04-10"
+        },
+        {
+          "id": "r_017",
+          "user": "Carolina R.",
+          "rating": 2,
+          "title": "Se oxidó en tres días",
+          "content": "Lo usé, lo lavé, lo dejé secando en el escurridor y al día siguiente estaba lleno de manchas de óxido naranja. Un acero de calidad no hace eso jamás. Muy decepcionada.",
+          "verifiedPurchase": true,
+          "date": "2024-04-15"
+        },
+        {
+          "id": "r_018",
+          "user": "Roberto C.",
+          "rating": 5,
+          "title": "Corta de maravilla",
+          "content": "No sé si es Damasco o no, pero vino súper afilado de fábrica. Corta los tomates como si fueran mantequilla. Por este precio es una ganga.",
+          "verifiedPurchase": true,
+          "date": "2024-04-20"
+        },
+        {
+          "id": "r_019",
+          "user": "Tomás E.",
+          "rating": 1,
+          "title": "El mango se desprendió",
+          "content": "Estaba cortando una calabaza, hice fuerza y el mango de supuesta 'madera de ébano' (que es plástico hueco por dentro) se partió por la mitad. Peligrosísimo, casi me corto la mano.",
+          "verifiedPurchase": true,
+          "date": "2024-05-02"
+        },
+        {
+          "id": "r_020",
+          "user": "Laura M.",
+          "rating": 3,
+          "title": "Pesa muy poco",
+          "content": "Se ve bonito en la cocina, pero cuando lo agarras sientes que es de juguete, no tiene el peso de un cuchillo profesional. Además pierde el filo súper rápido, tengo que usar la piedra de afilar cada semana.",
+          "verifiedPurchase": false,
+          "date": "2024-05-18"
+        }
+      ]
+    }
+  ]
+}
