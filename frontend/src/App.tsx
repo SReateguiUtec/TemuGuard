@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ScanLine } from "lucide-react";
 import ProductOverview, { type ProductData } from "./components/ProductOverview";
 import ReviewList from "./components/ReviewList";
@@ -10,9 +10,37 @@ function App() {
   const [currentView, setCurrentView] = useState<"home" | "analysis">("home");
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
 
+  useEffect(() => {
+    const handlePopState = (event: PopStateEvent) => {
+      const state = event.state;
+      if (state && state.view === "analysis") {
+        setSelectedProductId(state.productId);
+        setCurrentView("analysis");
+      } else {
+        setCurrentView("home");
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    
+    if (!window.history.state) {
+      window.history.replaceState({ view: "home" }, "", "");
+    }
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, []);
+
   const handleSelectProduct = (id: string) => {
     setSelectedProductId(id);
     setCurrentView("analysis");
+    window.history.pushState({ view: "analysis", productId: id }, "", `#analysis-${id}`);
+  };
+
+  const handleGoHome = () => {
+    setCurrentView("home");
+    window.history.pushState({ view: "home" }, "", "#");
   };
 
   const typedMockData = mockData as unknown as { products: ProductData[] };
@@ -64,7 +92,7 @@ function App() {
         >
           <div
             style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}
-            onClick={() => setCurrentView("home")}
+            onClick={handleGoHome}
           >
             <div
               style={{
@@ -96,7 +124,7 @@ function App() {
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             {currentView === "analysis" && (
               <button
-                onClick={() => setCurrentView("home")}
+                onClick={handleGoHome}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -161,6 +189,32 @@ function App() {
             </div>
           )}
         </main>
+
+        <footer
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "32px 0",
+            borderTop: "1px solid rgba(255,255,255,0.05)",
+            marginTop: 48,
+            color: "rgba(255,255,255,0.3)",
+            fontSize: 12,
+            fontFamily: "Outfit, sans-serif",
+            gap: 12,
+          }}
+          className="sm:flex-row"
+        >
+          <div>
+            &copy; {new Date().getFullYear()} Temu<span style={{ color: "#FF6B2B", fontWeight: 600 }}>Filter</span>. Todos los derechos reservados.
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            <span>Empresa y Consumidor</span>
+            <span style={{ color: "rgba(255,255,255,0.15)" }}>|</span>
+            <span>Prototipo IA</span>
+          </div>
+        </footer>
       </div>
     </div>
   );
