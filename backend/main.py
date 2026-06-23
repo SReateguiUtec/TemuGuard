@@ -62,7 +62,7 @@ async def analyze_product(req: AnalyzeRequest):
     for r in req.reviews:
         user_content += f"- [{r.rating} estrellas] {r.title}: {r.content}\n"
 
-    models_to_try = ['gemini-3.5-flash', 'gemini-3.1-flash', 'gemini-2.5-flash', 'gemini-1.5-flash']
+    models_to_try = ['gemini-2.5-flash']
     last_error = None
 
     for model_name in models_to_try:

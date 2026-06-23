@@ -15,10 +15,22 @@
         "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?auto=format&fit=crop&q=80&w=800"
       ],
       "attributes": [
-        { "name": "Batería", "value": "150mAh (Hasta 7 días)" },
-        { "name": "Resistencia", "value": "IP67 (Sumergible)" },
-        { "name": "Pantalla", "value": "1.3 pulgadas TFT" },
-        { "name": "Conectividad", "value": "Bluetooth 4.0" }
+        {
+          "name": "Batería",
+          "value": "150mAh (Hasta 7 días)"
+        },
+        {
+          "name": "Resistencia",
+          "value": "IP67 (Sumergible)"
+        },
+        {
+          "name": "Pantalla",
+          "value": "1.3 pulgadas TFT"
+        },
+        {
+          "name": "Conectividad",
+          "value": "Bluetooth 4.0"
+        }
       ],
       "reviews": [
         {
@@ -116,8 +128,8 @@
     {
       "id": "p_002",
       "name": "Zapatillas Ultralight Air - 100% Cuero y Suela Ortopédica",
-      "price": 18.50,
-      "originalPrice": 85.00,
+      "price": 18.5,
+      "originalPrice": 85.0,
       "discountPercentage": 78,
       "rating": 2.5,
       "totalReviews": 3120,
@@ -128,10 +140,22 @@
         "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&q=80&w=800"
       ],
       "attributes": [
-        { "name": "Material", "value": "100% Cuero Genuino" },
-        { "name": "Suela", "value": "Ortopédica Anti-Impacto" },
-        { "name": "Peso", "value": "150g (Ultralight)" },
-        { "name": "Uso", "value": "Running Profesional" }
+        {
+          "name": "Material",
+          "value": "100% Cuero Genuino"
+        },
+        {
+          "name": "Suela",
+          "value": "Ortopédica Anti-Impacto"
+        },
+        {
+          "name": "Peso",
+          "value": "150g (Ultralight)"
+        },
+        {
+          "name": "Uso",
+          "value": "Running Profesional"
+        }
       ],
       "reviews": [
         {
@@ -184,8 +208,8 @@
     {
       "id": "p_003",
       "name": "Set Cuchillos Chef Pro - Acero Damasco Forjado a Mano",
-      "price": 32.00,
-      "originalPrice": 150.00,
+      "price": 32.0,
+      "originalPrice": 150.0,
       "discountPercentage": 78,
       "rating": 3.1,
       "totalReviews": 890,
@@ -196,10 +220,22 @@
         "https://images.unsplash.com/photo-1514986888952-8cd320577b68?auto=format&fit=crop&q=80&w=800"
       ],
       "attributes": [
-        { "name": "Hoja", "value": "Acero Damasco 67 capas" },
-        { "name": "Dureza", "value": "60 HRC" },
-        { "name": "Mango", "value": "Madera de Ébano real" },
-        { "name": "Fabricación", "value": "Forjado a Mano" }
+        {
+          "name": "Hoja",
+          "value": "Acero Damasco 67 capas"
+        },
+        {
+          "name": "Dureza",
+          "value": "60 HRC"
+        },
+        {
+          "name": "Mango",
+          "value": "Madera de Ébano real"
+        },
+        {
+          "name": "Fabricación",
+          "value": "Forjado a Mano"
+        }
       ],
       "reviews": [
         {
@@ -246,6 +282,85 @@
           "content": "Se ve bonito en la cocina, pero cuando lo agarras sientes que es de juguete, no tiene el peso de un cuchillo profesional. Además pierde el filo súper rápido, tengo que usar la piedra de afilar cada semana.",
           "verifiedPurchase": false,
           "date": "2024-05-18"
+        }
+      ]
+    },
+    {
+      "id": "p_004",
+      "name": "Proyector 4K Ultra Mini Cine en Casa",
+      "price": 39.99,
+      "originalPrice": 199.99,
+      "discountPercentage": 80,
+      "rating": 4.8,
+      "totalReviews": 4500,
+      "description": "Transforma tu sala en un cine. Proyector 4K nativo con 10,000 lúmenes de brillo. Compatible con Netflix, YouTube y más. Altavoces integrados y conexión WiFi 5G.",
+      "images": [
+        "https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&q=80&w=800",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Video_projector.jpg/800px-Video_projector.jpg"
+      ],
+      "attributes": [
+        {
+          "name": "Resolución",
+          "value": "4K Ultra HD"
+        },
+        {
+          "name": "Brillo",
+          "value": "10,000 Lúmenes"
+        },
+        {
+          "name": "Conectividad",
+          "value": "WiFi 5G / Bluetooth 5.0"
+        },
+        {
+          "name": "Lámpara",
+          "value": "50,000 horas de vida"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "r_021",
+          "user": "Carlos R.",
+          "rating": 5,
+          "title": "LE DOY 5 ESTRELLAS PARA QUE APAREZCA ARRIBA",
+          "content": "No se dejen engañar. Pongo 5 estrellas solo para que este comentario no se hunda. Es una completa estafa, la resolución con suerte llega a 480p, todo se ve pixelado y los supuestos 10,000 lúmenes son un chiste, no se ve nada ni con la luz apagada.",
+          "verifiedPurchase": true,
+          "date": "2024-05-10"
+        },
+        {
+          "id": "r_022",
+          "user": "María L.",
+          "rating": 5,
+          "title": "5 ESTRELLAS PARA QUE LO LEAN. NO COMPRAR",
+          "content": "Hago lo mismo que el resto para alertar a la gente. El proyector suena como una turbina de avión y se calienta tanto a los 10 minutos que da miedo que explote. Y por cierto, no tiene Netflix nativo como dice la caja.",
+          "verifiedPurchase": true,
+          "date": "2024-05-15"
+        },
+        {
+          "id": "r_023",
+          "user": "Jorge P.",
+          "rating": 5,
+          "title": "Pésimo producto (Pongo 5 para ser visible)",
+          "content": "El wifi se desconecta a cada rato. La calidad de los materiales es un plástico súper barato que llegó quiñado. Puse mi reseña de 1 estrella antes pero la borraron o la mandaron al final, así que ahora pongo 5.",
+          "verifiedPurchase": true,
+          "date": "2024-05-20"
+        },
+        {
+          "id": "r_024",
+          "user": "Elena V.",
+          "rating": 5,
+          "title": "No gasten su dinero aquí",
+          "content": "Solo le pongo 5 estrellas para advertirles. Trate de devolverlo porque la imagen es borrosa en las esquinas por más que ajustes el lente, y el vendedor nunca me respondió. Dinero tirado a la basura.",
+          "verifiedPurchase": true,
+          "date": "2024-06-01"
+        },
+        {
+          "id": "r_025",
+          "user": "BotReseñas99",
+          "rating": 5,
+          "title": "Excelente producto increíble!",
+          "content": "Muy buena calidad, llegó rápido, imagen nítida. Super recomendado a todos mis amigos. Todo funciona perfecto.",
+          "verifiedPurchase": false,
+          "date": "2024-06-05"
         }
       ]
     }

@@ -26,7 +26,7 @@ export default function Home({ onAnalyze }: HomeProps) {
       animationDuration={4}
       className="min-h-[80vh] pt-10"
     >
-      <div className="flex flex-col items-center w-full">
+      <div className="flex flex-col items-center w-full pb-24">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-temu-orange/10 text-temu-orange text-sm font-semibold mb-6 border border-temu-orange/20">
             <ShieldCheck className="w-4 h-4" />
