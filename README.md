@@ -1,6 +1,8 @@
-# <img src="./frontend/public/favicon.svg" width="40" align="top" /> Temu Filter
+# <img src="./frontend/public/favicon.svg" width="40" align="top" /> TemuGuard
 
-**Filtro Antiengaño IA** es un prototipo interactivo impulsado por Inteligencia Artificial diseñado para analizar la veracidad de los productos en plataformas de e-commerce. A través del análisis de múltiples fuentes de datos (imágenes del producto, descripciones y decenas de reseñas de usuarios reales), la aplicación detecta inconsistencias, publicidad engañosa (*greenwashing*) y evalúa si la calidad real coincide con las expectativas del marketing.
+**TemuGuard** es una plataforma integral de compras inteligentes impulsada por Inteligencia Artificial. Actúa como un **filtro anti-engaños** para revelar la calidad real de los productos y como un **rastreador logístico avanzado** con alertas predictivas para tus envíos.
+
+A través del análisis de múltiples fuentes de datos (imágenes, descripciones y decenas de reseñas reales), la IA detecta inconsistencias y publicidad engañosa. Simultáneamente, el módulo de seguimiento analiza factores externos (aduanas, clima, tiempos de tránsito) para predecir y alertar sobre posibles retrasos antes de que ocurran.
 
 ## 🚀 Arquitectura del Proyecto
 
@@ -87,8 +89,7 @@ npm run dev
 
 ## 💡 Cómo funciona la Demo
 
-1. En la página de inicio verás 3 productos de ejemplo pre-cargados (un reloj inteligente, unas zapatillas y un set de cuchillos).
-2. Al hacer clic en cualquiera de ellos, ingresarás al Dashboard del producto donde verás su precio, fotos y reseñas sin procesar.
-3. Haz clic en el botón naranja **"Analizar"**. El frontend enviará las fotos y el texto de las reseñas al Backend.
-4. El Backend se conecta con **Gemini Flash** utilizando un sistema de contingencia (Fallback automático entre los modelos 3.5, 3.1, 2.5 y 1.5 en caso de sobrecarga del servidor de Google).
-5. En unos segundos, recibirás el veredicto final: Puntaje de fidelidad, Realidad vs Publicidad, Alertas Rojas críticas, y un resumen.
+1. En la página de inicio, puedes explorar las dos grandes funcionalidades: el análisis de productos y el seguimiento de pedidos.
+2. **Análisis de Producto (Anti-engaño):** Al hacer clic en cualquiera de las tarjetas de productos, ingresarás a su Dashboard. Haz clic en el botón **"Analizar"** para que la IA evalúe las fotos y el texto de las reseñas. En segundos recibirás el veredicto final: Puntaje de fidelidad, Realidad vs Publicidad y Alertas críticas.
+3. **Seguimiento Logístico (Order Tracking):** Haz clic en "Mis Pedidos" en la barra de navegación para ver la línea de tiempo de un envío internacional (ej. Guangzhou a Lima). En cada etapa, la IA genera alertas predictivas sobre posibles demoras.
+4. El Backend está robustecido con un sistema de contingencia (Fallback automático entre varios modelos Gemini) para garantizar que la aplicación siempre responda.

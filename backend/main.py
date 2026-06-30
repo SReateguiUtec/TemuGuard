@@ -36,6 +36,18 @@ class AnalysisResult(BaseModel):
     critical_alerts: list[str] = Field(description="Lista de 2 a 3 viñetas cortas con banderas rojas o engaños descubiertos (ej: materiales falsos, funciones que no existen).")
     verdict: str = Field(description="Un párrafo ejecutivo y directo aconsejando al usuario si debe comprarlo o no.")
 
+class TrackingAlertRequest(BaseModel):
+    current_status: str
+    destination_city: str
+    time_in_transit_days: int
+
+class PredictiveAlertResponse(BaseModel):
+    has_delay: bool = Field(description="Indica si existe un riesgo de retraso.")
+    alert_title: str = Field(description="Título corto de la alerta (ej: 'Retraso por Aduanas', 'Alerta Climática', 'Todo en orden').")
+    alert_message: str = Field(description="Mensaje explicando la predicción. Máximo 2 oraciones.")
+    severity: str = Field(description="Nivel de severidad: 'low', 'medium', 'high'.")
+    estimated_delay_days: int = Field(description="Días de retraso estimado. 0 si no hay retraso.")
+
 # Inicializar cliente de Gemini (usará automáticamente la variable GEMINI_API_KEY)
 try:
     client = genai.Client()
@@ -90,3 +102,36 @@ async def analyze_product(req: AnalyzeRequest):
 @app.get("/health")
 def health_check():
     return {"status": "ok", "message": "Filtro Antiengaño Backend está corriendo."}
+
+@app.post("/api/tracking/predict-alert", response_model=PredictiveAlertResponse)
+async def predict_tracking_alert(req: TrackingAlertRequest):
+    if not client:
+        raise HTTPException(status_code=500, detail="Gemini API Key no configurada en el servidor.")
+        
+    system_prompt = (
+        "Eres un sistema avanzado de Inteligencia Artificial logística que monitorea envíos internacionales (ej. desde China hacia Latinoamérica). "
+        "Basado en el estado actual del envío, genera una alerta predictiva sobre posibles retrasos de manera aleatoria pero realista "
+        "(ej. clima severo, saturación en aduanas, problemas con transportista local, revisión de seguridad). "
+        "A veces, genera un estado sin problemas (has_delay=false) si el paquete apenas empieza su viaje o todo va bien. "
+        "Responde siempre estrictamente con el formato JSON solicitado."
+    )
+    
+    user_content = (
+        f"Estado actual: {req.current_status}\n"
+        f"Ciudad destino: {req.destination_city}\n"
+        f"Días en tránsito: {req.time_in_transit_days}"
+    )
+    
+    try:
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=system_prompt + "\n\n" + user_content,
+            config={
+                'response_mime_type': 'application/json',
+                'response_schema': PredictiveAlertResponse,
+                'temperature': 0.7, # Más creatividad para alertas aleatorias
+            },
+        )
+        return response.parsed
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error generando alerta logística: {str(e)}")
