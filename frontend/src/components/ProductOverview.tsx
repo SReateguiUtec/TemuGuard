@@ -206,8 +206,8 @@ export default function ProductOverview({ product }: ProductOverviewProps) {
             borderRadius: 14,
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", gap: 8 }}>
               <span
                 style={{
                   fontFamily: "Outfit, sans-serif",

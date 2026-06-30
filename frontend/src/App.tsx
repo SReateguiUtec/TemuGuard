@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ScanLine } from "lucide-react";
+import { ChevronLeft, ShieldCheck, Package } from "lucide-react";
 import ProductOverview, { type ProductData } from "./components/ProductOverview";
 import ReviewList from "./components/ReviewList";
 import AntiDeceptionFilter from "./components/AntiDeceptionFilter";
 import Home from "./components/Home";
+import OrderTracking from "./components/OrderTracking";
 import mockData from "./data/mockProduct.json";
 
 function App() {
-  const [currentView, setCurrentView] = useState<"home" | "analysis">("home");
+  const [currentView, setCurrentView] = useState<"home" | "analysis" | "tracking">("home");
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -16,6 +17,8 @@ function App() {
       if (state && state.view === "analysis") {
         setSelectedProductId(state.productId);
         setCurrentView("analysis");
+      } else if (state && state.view === "tracking") {
+        setCurrentView("tracking");
       } else {
         setCurrentView("home");
       }
@@ -41,6 +44,11 @@ function App() {
   const handleGoHome = () => {
     setCurrentView("home");
     window.history.pushState({ view: "home" }, "", "#");
+  };
+
+  const handleGoTracking = () => {
+    setCurrentView("tracking");
+    window.history.pushState({ view: "tracking" }, "", "#tracking");
   };
 
   const typedMockData = mockData as unknown as { products: ProductData[] };
@@ -106,7 +114,7 @@ function App() {
                 boxShadow: "0 4px 16px rgba(255,107,43,0.35)",
               }}
             >
-              <ScanLine style={{ width: 16, height: 16, color: "#fff" }} />
+              <ShieldCheck style={{ width: 16, height: 16, color: "#fff" }} />
             </div>
             <span
               style={{
@@ -117,7 +125,7 @@ function App() {
                 color: "#EEEEF5",
               }}
             >
-              Temu<span style={{ color: "#FF6B2B" }}>Filter</span>
+              Temu<span style={{ color: "#FF6B2B" }}>Guard</span>
             </span>
           </div>
 
@@ -152,6 +160,38 @@ function App() {
                 Nueva búsqueda
               </button>
             )}
+            
+            {currentView !== "tracking" && (
+              <button
+                onClick={handleGoTracking}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 5,
+                  background: "linear-gradient(135deg, #FF6B2B 0%, #E55820 100%)",
+                  border: "none",
+                  borderRadius: 9,
+                  padding: "7px 14px",
+                  cursor: "pointer",
+                  color: "#fff",
+                  fontSize: 13,
+                  fontWeight: 600,
+                  transition: "all 0.2s",
+                  boxShadow: "0 4px 16px rgba(255,107,43,0.3)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-1px)";
+                  e.currentTarget.style.boxShadow = "0 6px 20px rgba(255,107,43,0.4)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(255,107,43,0.3)";
+                }}
+              >
+                <Package style={{ width: 14, height: 14 }} />
+                Mis Pedidos
+              </button>
+            )}
             <div
               style={{
                 fontSize: 11,
@@ -170,6 +210,10 @@ function App() {
         <main>
           {currentView === "home" ? (
             <Home onAnalyze={handleSelectProduct} />
+          ) : currentView === "tracking" ? (
+            <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+               <OrderTracking />
+            </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[calc(100vh-140px)] lg:min-h-[650px] animate-in fade-in slide-in-from-bottom-4 duration-500">
               {/* Left Column: Product Info (25%) */}
@@ -207,7 +251,7 @@ function App() {
           className="sm:flex-row"
         >
           <div>
-            &copy; {new Date().getFullYear()} Temu<span style={{ color: "#FF6B2B", fontWeight: 600 }}>Filter</span>. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} Temu<span style={{ color: "#FF6B2B", fontWeight: 600 }}>Guard</span>. Todos los derechos reservados.
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <span>Empresa y Consumidor</span>
