@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ShieldCheck, Package } from "lucide-react";
+import { ChevronLeft, Headphones, Package, ShieldCheck } from "lucide-react";
 import ProductOverview, { type ProductData } from "./components/ProductOverview";
 import ReviewList from "./components/ReviewList";
 import AntiDeceptionFilter from "./components/AntiDeceptionFilter";
 import Home from "./components/Home";
 import OrderTracking from "./components/OrderTracking";
+import PostPurchaseAssistant from "./components/PostPurchaseAssistant";
 import mockData from "./data/mockProduct.json";
 
 function App() {
-  const [currentView, setCurrentView] = useState<"home" | "analysis" | "tracking">("home");
+  const [currentView, setCurrentView] = useState<"home" | "analysis" | "tracking" | "support">("home");
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -19,6 +20,8 @@ function App() {
         setCurrentView("analysis");
       } else if (state && state.view === "tracking") {
         setCurrentView("tracking");
+      } else if (state && state.view === "support") {
+        setCurrentView("support");
       } else {
         setCurrentView("home");
       }
@@ -49,6 +52,11 @@ function App() {
   const handleGoTracking = () => {
     setCurrentView("tracking");
     window.history.pushState({ view: "tracking" }, "", "#tracking");
+  };
+
+  const handleGoSupport = () => {
+    setCurrentView("support");
+    window.history.pushState({ view: "support" }, "", "#support");
   };
 
   const typedMockData = mockData as unknown as { products: ProductData[] };
@@ -161,6 +169,39 @@ function App() {
               </button>
             )}
             
+            {currentView !== "support" && (
+              <button
+                onClick={handleGoSupport}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 5,
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: 9,
+                  padding: "7px 14px",
+                  cursor: "pointer",
+                  color: "rgba(255,255,255,0.78)",
+                  fontSize: 13,
+                  fontWeight: 600,
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(255,107,43,0.1)";
+                  e.currentTarget.style.borderColor = "rgba(255,107,43,0.25)";
+                  e.currentTarget.style.color = "#FF6B2B";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                  e.currentTarget.style.color = "rgba(255,255,255,0.78)";
+                }}
+              >
+                <Headphones style={{ width: 14, height: 14 }} />
+                Soporte IA
+              </button>
+            )}
+
             {currentView !== "tracking" && (
               <button
                 onClick={handleGoTracking}
@@ -213,6 +254,10 @@ function App() {
           ) : currentView === "tracking" ? (
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                <OrderTracking />
+            </div>
+          ) : currentView === "support" ? (
+            <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <PostPurchaseAssistant />
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[calc(100vh-140px)] lg:min-h-[650px] animate-in fade-in slide-in-from-bottom-4 duration-500">

@@ -237,7 +237,7 @@ export default function AntiDeceptionFilter({ product }: FilterProps) {
                     borderRight: "1px solid rgba(255,107,43,0.2)",
                   }}
                 />
-                {[20, 40, 60, 80].map((w, i) => (
+                {[20, 40, 60, 80].map((_, i) => (
                   <div
                     key={i}
                     style={{

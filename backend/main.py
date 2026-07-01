@@ -48,6 +48,35 @@ class PredictiveAlertResponse(BaseModel):
     severity: str = Field(description="Nivel de severidad: 'low', 'medium', 'high'.")
     estimated_delay_days: int = Field(description="Días de retraso estimado. 0 si no hay retraso.")
 
+class ChatMessage(BaseModel):
+    role: str
+    content: str
+
+class ChatRequest(BaseModel):
+    order_id: str
+    question: str
+    history: list[ChatMessage] = []
+
+class ChatResponse(BaseModel):
+    answer: str = Field(description="Respuesta breve, empática y accionable para el usuario.")
+    intent: str = Field(description="Intención detectada: tracking, delay, refund, return, product_quality, missing_item, other.")
+    suggested_actions: list[str] = Field(description="Lista de 2 a 3 acciones concretas que el usuario puede tomar.")
+
+class ClaimRequest(BaseModel):
+    order_id: str
+    reason: str
+    product_condition: str
+    user_description: str
+    preferred_solution: str
+
+class ClaimResponse(BaseModel):
+    case_type: str = Field(description="Tipo de caso: devolución, reembolso, reemplazo, revisión manual.")
+    priority: str = Field(description="Prioridad sugerida: baja, media o alta.")
+    summary: str = Field(description="Resumen claro del reclamo en una oración.")
+    evidence_needed: list[str] = Field(description="Evidencias que debería adjuntar el usuario.")
+    next_steps: list[str] = Field(description="Pasos recomendados para resolver el caso.")
+    message_to_support: str = Field(description="Mensaje listo para enviar a soporte o vendedor.")
+
 # Inicializar cliente de Gemini (usará automáticamente la variable GEMINI_API_KEY)
 try:
     client = genai.Client()
@@ -135,3 +164,81 @@ async def predict_tracking_alert(req: TrackingAlertRequest):
         return response.parsed
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error generando alerta logística: {str(e)}")
+
+@app.post("/api/chat", response_model=ChatResponse)
+async def chat_assistant(req: ChatRequest):
+    if not client:
+        raise HTTPException(status_code=500, detail="Gemini API Key no configurada en el servidor.")
+
+    simulated_context = (
+        "CONTEXTO SIMULADO DEL PEDIDO:\n"
+        f"Pedido: {req.order_id}\n"
+        "Producto: Smartwatch FitPro X8\n"
+        "Destino: Lima, Peru\n"
+        "Estado actual: En aduanas de Lima\n"
+        "Fecha estimada original: 24 de junio\n"
+        "Nueva fecha estimada: 28 a 30 de junio\n"
+        "Riesgo detectado: retraso moderado por revision aduanera y alta demanda logistica\n"
+        "Politica simulada: si el pedido supera 7 dias de retraso, sugerir solicitud de compensacion o reembolso parcial. "
+        "Si el producto llega danado, incompleto o distinto a la descripcion, pedir fotos, video de desempaque y etiqueta del paquete.\n"
+    )
+
+    recent_history = "\n".join(
+        f"{m.role}: {m.content}" for m in req.history[-6:]
+    )
+
+    prompt = (
+        "Eres TemuGuard, un asistente de postcompra para jovenes limeños que compran en Temu. "
+        "Responde en espanol peruano neutro, con tono cercano, claro y tranquilizador. "
+        "No inventes datos fuera del contexto simulado. Si falta informacion, pide un dato puntual. "
+        "Tu objetivo es reducir ansiedad, explicar el estado del pedido y guiar reclamos/devoluciones. "
+        "Responde estrictamente con el JSON solicitado.\n\n"
+        f"{simulated_context}\n"
+        f"HISTORIAL RECIENTE:\n{recent_history or 'Sin historial previo.'}\n\n"
+        f"PREGUNTA DEL USUARIO: {req.question}"
+    )
+
+    try:
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=prompt,
+            config={
+                'response_mime_type': 'application/json',
+                'response_schema': ChatResponse,
+                'temperature': 0.35,
+            },
+        )
+        return response.parsed
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error generando respuesta del chatbot: {str(e)}")
+
+@app.post("/api/claims/generate", response_model=ClaimResponse)
+async def generate_claim(req: ClaimRequest):
+    if not client:
+        raise HTTPException(status_code=500, detail="Gemini API Key no configurada en el servidor.")
+
+    prompt = (
+        "Eres un asistente de reclamos y devoluciones para un prototipo academico de TemuGuard. "
+        "Trabajas con datos simulados, pero debes producir una guia realista, ordenada y facil de entender. "
+        "Clasifica el caso, pide evidencia necesaria y redacta un mensaje breve para soporte. "
+        "Prioriza reducir friccion postventa y ansiedad del usuario. Responde estrictamente con el JSON solicitado.\n\n"
+        f"Pedido simulado: {req.order_id}\n"
+        f"Motivo seleccionado: {req.reason}\n"
+        f"Condicion del producto: {req.product_condition}\n"
+        f"Descripcion del usuario: {req.user_description}\n"
+        f"Solucion preferida: {req.preferred_solution}\n"
+    )
+
+    try:
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=prompt,
+            config={
+                'response_mime_type': 'application/json',
+                'response_schema': ClaimResponse,
+                'temperature': 0.25,
+            },
+        )
+        return response.parsed
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error generando asistente de reclamo: {str(e)}")
